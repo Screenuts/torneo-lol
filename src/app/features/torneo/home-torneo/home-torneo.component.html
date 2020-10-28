@@ -1,0 +1,53 @@
+<app-background>
+  <div class="row">
+    <div class="col">
+      <h1>Benvenuto {{getUsername()}}</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <div>
+        <div>
+          Cerca Torneo
+        </div>
+        <input type="text" [(ngModel)]="codiceTorneo">
+        <button
+          type="button"
+          class="btn btn-danger btn-circle btn-xl"
+          (click)="cercaTorneo()">
+          <i class="fa fa-search"></i></button>
+      </div>
+      <div *ngIf="cercaBoolean">
+        <span>
+          <p *ngIf="torneoTrovato" class="text-success">
+            Torneo Trovato!!!
+          </p>
+          <p *ngIf="!torneoTrovato" class="text-danger">
+            Torneo Non Trovato, riprova!
+          </p>
+        </span>
+      </div>
+    </div>
+    <div class="col-6">
+      <div>
+        <div>
+          Crea nuovo
+        </div>
+      </div>
+      <div class="mt-3">
+        <button
+          type="button"
+          class="btn btn-danger btn-circle btn-xl"
+          (click)="creaNuovoTorneo()">
+          <i class="fa fa-plus"></i></button>
+      </div>
+      <div *ngIf="nuovoBoolean">
+        <span>
+          <p *ngIf="torneoTrovato" class="text-success">
+            Nome casuale : {{getCodiceTorneo()}}
+          </p>
+        </span>
+      </div>
+    </div>
+  </div>
+</app-background>
